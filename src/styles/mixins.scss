@@ -1,0 +1,138 @@
+@use './variaveis' as *;
+
+@mixin flex-centro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-entre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-coluna {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-coluna-centro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin grid-4-colunas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $espacamento-lg;
+
+  @media (max-width: $breakpoint-desktop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $espacamento-md;
+  }
+
+  @media (max-width: $breakpoint-mobile-lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+@mixin botao-primario {
+  background-color: $cor-azul-primaria;
+  color: $fundo-branco;
+  border: none;
+  padding: $espacamento-sm $espacamento-lg;
+  font-weight: $peso-bold;
+  cursor: pointer;
+  border-radius: $raio-sm;
+  transition: background-color $transicao-base;
+  text-transform: uppercase;
+  font-size: $tamanho-sm;
+
+  &:hover {
+    background-color: $cor-azul-escuro;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+@mixin botao-secundario {
+  background-color: $cor-amarelo;
+  color: $texto-escuro;
+  border: none;
+  padding: $espacamento-sm $espacamento-lg;
+  font-weight: $peso-semibold;
+  cursor: pointer;
+  border-radius: $raio-sm;
+
+  &:hover {
+    background-color: darken($cor-amarelo, 10%);
+  }
+}
+
+@mixin card-sombra {
+  box-shadow: $sombra-md;
+  border-radius: $raio-md;
+  background-color: $fundo-branco;
+}
+
+@mixin card-hover {
+  transition: all $transicao-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $sombra-lg;
+  }
+}
+
+@mixin titulo-1 {
+  font-size: $tamanho-2xl;
+  font-weight: $peso-bold;
+  line-height: 1.2;
+  color: $texto-escuro;
+}
+
+@mixin titulo-2 {
+  font-size: $tamanho-xl;
+  font-weight: $peso-bold;
+  line-height: 1.2;
+  color: $texto-escuro;
+}
+
+@mixin texto-corpo {
+  font-size: $tamanho-base;
+  font-weight: $peso-regular;
+  line-height: 1.5;
+  color: $texto-escuro;
+}
+
+@mixin texto-pequeno {
+  font-size: $tamanho-sm;
+  font-weight: $peso-regular;
+  color: $texto-cinza;
+}
+
+@mixin container {
+  max-width: $largura-container;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $padding-container;
+  padding-right: $padding-container;
+  width: 100%;
+}
+
+@mixin truncar-linhas($linhas: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $linhas;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
