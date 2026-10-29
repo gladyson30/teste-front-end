@@ -1,4 +1,4 @@
-import { Produto, RespostaApi, InfoPreco } from '../types/produto';
+import type { Produto, RespostaApi, InfoPreco } from '../types/produto';
 
 const URL_API = 'https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json';
 
